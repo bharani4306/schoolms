@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard — EduManage Pro</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/dashboard.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <div class="dashboard-layout">
+
+    <!-- ── Sidebar ─────────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand nav-brand">
+          <div class="brand-icon">🎓</div>
+          <div><span class="brand-name">EduManage</span><span class="brand-sub">Pro</span></div>
+        </div>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="sp-card">
+          <div class="sp-top">
+            <div class="avatar-placeholder av-blue" id="sb-avatar" style="width:42px;height:42px;font-size:1rem">?</div>
+            <div class="sp-info">
+              <div class="sp-name" id="sb-name">Loading…</div>
+              <div class="sp-role">Student</div>
+              <div class="sp-id" id="sb-id">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-title">Dashboard</span>
+        <button class="nav-item active" data-section="overview" id="nav-overview">
+          <span class="nav-icon">🏠</span> Overview
+        </button>
+        <button class="nav-item" data-section="profile" id="nav-profile">
+          <span class="nav-icon">👤</span> My Profile
+        </button>
+
+        <span class="nav-section-title">Academic</span>
+        <button class="nav-item" data-section="grades" id="nav-grades">
+          <span class="nav-icon">📊</span> Grades & Marks
+        </button>
+        <button class="nav-item" data-section="attendance" id="nav-attendance">
+          <span class="nav-icon">📅</span> Attendance
+        </button>
+
+        <span class="nav-section-title">School</span>
+        <button class="nav-item" data-section="announcements" id="nav-announcements">
+          <span class="nav-icon">📢</span> Announcements
+        </button>
+        <button class="nav-item" data-section="teachers" id="nav-teachers">
+          <span class="nav-icon">👩‍🏫</span> Teachers
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" id="logout-btn">
+          <span>🚪</span> Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ────────────────────────────────── -->
+    <div class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="btn btn-secondary btn-sm" id="sidebar-toggle" style="display:none">☰</button>
+          <div>
+            <div class="page-title" id="page-title">Overview</div>
+            <div class="page-breadcrumb">Student Dashboard</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-time" id="topbar-time"></span>
+          <span class="badge badge-blue">Student</span>
+        </div>
+      </header>
+
+      <div class="content-area">
+
+        <!-- ── Overview Section ─────────────────────── -->
+        <div class="dash-section active" id="section-overview">
+          <div class="stats-row">
+            <div class="glass-card stat-card">
+              <div class="stat-icon" style="background:rgba(37,99,235,0.15)">📊</div>
+              <div class="stat-value" id="stat-avg">—</div>
+              <div class="stat-label">Average Score</div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-icon" style="background:rgba(16,185,129,0.15)">✅</div>
+              <div class="stat-value" id="stat-att">—</div>
+              <div class="stat-label">Attendance %</div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-icon" style="background:rgba(245,158,11,0.15)">🏆</div>
+              <div class="stat-value" id="stat-grade">—</div>
+              <div class="stat-label">Overall Grade</div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-icon" style="background:rgba(244,63,94,0.15)">📋</div>
+              <div class="stat-value" id="stat-subjects">—</div>
+              <div class="stat-label">Subjects</div>
+            </div>
+          </div>
+
+          <!-- Recent Grades Preview -->
+          <div class="glass-card">
+            <div class="student-list-header" style="padding:20px 20px 0">
+              <h3 style="font-size:1rem">Recent Exam Results</h3>
+            </div>
+            <div class="student-table-wrap" style="padding:16px">
+              <table class="data-table" id="recent-grades-table">
+                <thead><tr>
+                  <th>Subject</th><th>Exam Type</th><th>Marks</th><th>Max</th><th>%</th><th>Date</th><th>Grade</th>
+                </tr></thead>
+                <tbody id="recent-grades-body">
+                  <tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Announcements preview -->
+          <div class="glass-card">
+            <div style="padding:20px 20px 0"><h3 style="font-size:1rem">Latest Announcements</h3></div>
+            <div class="ann-list" id="overview-announcements">
+              <div style="color:var(--text-muted);font-size:0.85rem;text-align:center;padding:12px">Loading…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Profile Section ──────────────────────── -->
+        <div class="dash-section" id="section-profile">
+          <div class="section-head"><h2>My Profile</h2></div>
+          <div class="profile-grid">
+            <div class="glass-card profile-card-main">
+              <div class="profile-avatar-wrap">
+                <div class="avatar-placeholder av-blue" id="profile-avatar" style="width:90px;height:90px;font-size:2rem">?</div>
+                <div class="profile-avatar-badge">✓</div>
+              </div>
+              <div class="profile-name" id="profile-name">—</div>
+              <div class="profile-sub" id="profile-sub">—</div>
+              <div class="profile-badges" id="profile-badges"></div>
+            </div>
+            <div class="glass-card profile-details">
+              <h3 style="margin-bottom:20px;font-size:1rem">Personal Information</h3>
+              <div class="detail-grid" id="profile-detail-grid"></div>
+            </div>
+          </div>
+          <div class="glass-card profile-details">
+            <h3 style="margin-bottom:20px;font-size:1rem">Parent / Guardian Information</h3>
+            <div class="detail-grid" id="parent-detail-grid"></div>
+          </div>
+        </div>
+
+        <!-- ── Grades Section ───────────────────────── -->
+        <div class="dash-section" id="section-grades">
+          <div class="section-head"><h2>Grades & Marks</h2></div>
+          <div class="grades-grid">
+            <div class="glass-card">
+              <div style="padding:20px 20px 0"><h3 style="font-size:1rem;margin-bottom:16px">Subject Performance</h3></div>
+              <div class="grade-subject-list" id="grade-subject-list">
+                <div style="color:var(--text-muted);text-align:center">Loading…</div>
+              </div>
+            </div>
+            <div class="glass-card">
+              <div style="padding:20px 20px 0"><h3 style="font-size:1rem;margin-bottom:16px">Grade Summary</h3></div>
+              <div style="padding:0 20px 20px;display:flex;flex-direction:column;gap:12px" id="grade-summary-cards"></div>
+            </div>
+          </div>
+          <div class="glass-card">
+            <div class="student-list-header">
+              <h3 style="font-size:1rem">All Exam Records</h3>
+              <select class="form-input filter-select" id="grade-exam-filter" style="width:auto;min-width:150px">
+                <option value="">All Exams</option>
+                <option>Unit Test</option>
+                <option>Mid Term</option>
+                <option>Final</option>
+                <option>Assignment</option>
+              </select>
+            </div>
+            <div class="student-table-wrap">
+              <table class="data-table" id="all-grades-table">
+                <thead><tr>
+                  <th>Subject</th><th>Exam</th><th>Marks</th><th>Max</th><th>%</th><th>Grade</th><th>Date</th>
+                </tr></thead>
+                <tbody id="all-grades-body">
+                  <tr><td colspan="7" style="text-align:center;color:var(--text-muted)">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Attendance Section ───────────────────── -->
+        <div class="dash-section" id="section-attendance">
+          <div class="section-head"><h2>Attendance</h2></div>
+          <div class="att-grid">
+            <div class="glass-card">
+              <div style="padding:20px 20px 10px"><h3 style="font-size:1rem">Attendance Summary</h3></div>
+              <div class="att-summary-cards" id="att-summary-cards">
+                <div style="color:var(--text-muted);font-size:0.85rem">Loading…</div>
+              </div>
+            </div>
+            <div class="glass-card att-gauge">
+              <h3 style="font-size:1rem">Overall Attendance</h3>
+              <div class="att-circle-wrap">
+                <svg class="att-circle-svg" width="140" height="140" viewBox="0 0 140 140">
+                  <circle class="att-circle-track" cx="70" cy="70" r="55"/>
+                  <circle class="att-circle-fill" id="att-circle-fill" cx="70" cy="70" r="55" stroke="url(#attGrad)"/>
+                  <defs>
+                    <linearGradient id="attGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#10b981"/>
+                      <stop offset="100%" stop-color="#22d3ee"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="att-circle-text">
+                  <div class="att-pct-val" id="att-pct-val">—</div>
+                  <div class="att-pct-label">Attendance</div>
+                </div>
+              </div>
+              <div class="att-legend" id="att-legend">—</div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="student-list-header">
+              <h3 style="font-size:1rem">Attendance History</h3>
+              <select class="form-input filter-select" id="att-status-filter" style="width:auto">
+                <option value="">All</option>
+                <option>Present</option><option>Absent</option><option>Late</option>
+              </select>
+            </div>
+            <div class="student-table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Date</th><th>Day</th><th>Status</th></tr></thead>
+                <tbody id="att-history-body">
+                  <tr><td colspan="3" style="text-align:center;color:var(--text-muted)">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Announcements Section ────────────────── -->
+        <div class="dash-section" id="section-announcements">
+          <div class="section-head"><h2>Announcements</h2></div>
+          <div class="glass-card">
+            <div class="ann-list" id="full-announcements">
+              <div style="color:var(--text-muted);text-align:center">Loading…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Teachers Section ─────────────────────── -->
+        <div class="dash-section" id="section-teachers">
+          <div class="section-head"><h2>Teaching Staff</h2></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px" id="teachers-grid">
+            <div style="color:var(--text-muted);font-size:0.85rem">Loading…</div>
+          </div>
+        </div>
+
+      </div><!-- /content-area -->
+    </div><!-- /main-content -->
+  </div><!-- /dashboard-layout -->
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard-student.js"></script>
+</body>
+</html>

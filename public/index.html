@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduManage Pro — School Management System</title>
+  <meta name="description" content="Modern school management system with separate student and teacher portals, grades tracking, and attendance management." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/landing.css" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <!-- ── Navbar ─────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <span class="brand-name">EduManage</span>
+          <span class="brand-sub">Pro</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#portals" class="nav-link">Portals</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+      <div class="nav-actions">
+        <a href="login-student.html" class="btn btn-secondary btn-sm">Student Login</a>
+        <a href="login-teacher.html" class="btn btn-primary btn-sm">Teacher Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-content animate-fadeInUp">
+      <div class="hero-badge">
+        <span class="badge badge-blue">🔬 Powered by ClickHouse</span>
+      </div>
+      <h1 class="hero-title">
+        Smart School<br/>
+        <span class="gradient-text">Management System</span>
+      </h1>
+      <p class="hero-desc">
+        A unified platform for students and teachers. Track grades, monitor attendance,
+        manage class rosters — all powered by ClickHouse analytics in real time.
+      </p>
+      <div class="hero-actions">
+        <a href="login-student.html" class="btn btn-primary btn-lg" id="hero-student-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Student Portal
+        </a>
+        <a href="login-teacher.html" class="btn btn-amber btn-lg" id="hero-teacher-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Teacher Portal
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" data-count="500">0</span>
+          <span class="hero-stat-label">Students</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" data-count="40">0</span>
+          <span class="hero-stat-label">Teachers</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" data-count="15">0</span>
+          <span class="hero-stat-label">Classes</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" data-count="98">0</span><span style="color:var(--amber-400);font-size:1.4rem;font-weight:800">%</span>
+          <span class="hero-stat-label">Uptime</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual animate-fadeInUp delay-3">
+      <div class="hero-card-wrapper animate-float">
+        <div class="hero-mockup glass-card">
+          <div class="mockup-header">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <span class="mockup-title">Student Dashboard</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-profile">
+              <div class="avatar-placeholder av-blue avatar-md" style="width:42px;height:42px;font-size:1.1rem">A</div>
+              <div>
+                <div class="mockup-name">Arjun Sharma</div>
+                <div class="mockup-sub">Class 10-A • Roll #01</div>
+              </div>
+            </div>
+            <div class="mockup-divider"></div>
+            <div class="mockup-stats">
+              <div class="mockup-stat"><span class="ms-value">91%</span><span class="ms-label">Avg Score</span></div>
+              <div class="mockup-stat"><span class="ms-value">94%</span><span class="ms-label">Attendance</span></div>
+              <div class="mockup-stat"><span class="ms-value">A+</span><span class="ms-label">Grade</span></div>
+            </div>
+            <div class="mockup-bars">
+              <div class="mb-row"><span>Mathematics</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:93%"></div></div><span>93</span></div>
+              <div class="mb-row"><span>Physics</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:87%;background:linear-gradient(90deg,var(--purple-500),var(--purple-400))"></div></div><span>87</span></div>
+              <div class="mb-row"><span>English</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:95%;background:linear-gradient(90deg,var(--emerald-500),var(--cyan-400))"></div></div><span>95</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Portal Cards ────────────────────────────────────── -->
+  <section class="portals" id="portals">
+    <div class="section-header animate-fadeInUp">
+      <span class="section-tag badge badge-blue">Access Portals</span>
+      <h2 class="section-title">Choose Your Portal</h2>
+      <p class="section-desc">Separate secure logins with role-specific dashboards and permissions</p>
+    </div>
+    <div class="portal-cards">
+      <div class="portal-card glass-card animate-fadeInUp delay-1" id="student-portal-card">
+        <div class="portal-icon student-icon">👨‍🎓</div>
+        <h3>Student Portal</h3>
+        <p>View your academic performance, attendance records, class schedule, and school announcements.</p>
+        <ul class="portal-features">
+          <li>✅ Personal profile & grades</li>
+          <li>✅ Attendance history & stats</li>
+          <li>✅ Subject-wise performance</li>
+          <li>✅ School announcements</li>
+          <li>✅ Teacher information</li>
+        </ul>
+        <a href="login-student.html" class="btn btn-primary w-full" style="justify-content:center;margin-top:24px">
+          Login as Student →
+        </a>
+        <div class="portal-creds">
+          <strong>Demo ID:</strong> STU001 &nbsp;|&nbsp; <strong>Password:</strong> student123
+        </div>
+      </div>
+
+      <div class="portal-card glass-card animate-fadeInUp delay-2" id="teacher-portal-card">
+        <div class="portal-icon teacher-icon">👩‍🏫</div>
+        <h3>Teacher Portal</h3>
+        <p>Manage your class roster, record marks, mark attendance, and post announcements to students.</p>
+        <ul class="portal-features">
+          <li>✅ Class roster management</li>
+          <li>✅ Mark entry & editing</li>
+          <li>✅ Attendance marking</li>
+          <li>✅ Add / view students</li>
+          <li>✅ Post announcements</li>
+        </ul>
+        <a href="login-teacher.html" class="btn btn-amber w-full" style="justify-content:center;margin-top:24px">
+          Login as Teacher →
+        </a>
+        <div class="portal-creds">
+          <strong>Demo ID:</strong> TCH001 &nbsp;|&nbsp; <strong>Password:</strong> teacher123
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ───────────────────────────────────────── -->
+  <section class="features" id="features">
+    <div class="section-header animate-fadeInUp">
+      <span class="section-tag badge badge-purple">Platform Features</span>
+      <h2 class="section-title">Everything You Need</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card glass-card animate-fadeInUp delay-1">
+        <div class="feature-icon" style="background:rgba(37,99,235,0.15)">📊</div>
+        <h4>Real-time Analytics</h4>
+        <p>Powered by ClickHouse — blazing-fast grade aggregations and attendance stats.</p>
+      </div>
+      <div class="feature-card glass-card animate-fadeInUp delay-2">
+        <div class="feature-icon" style="background:rgba(245,158,11,0.15)">🔐</div>
+        <h4>Secure Auth</h4>
+        <p>Separate JWT-based logins for students and teachers with role-based access control.</p>
+      </div>
+      <div class="feature-card glass-card animate-fadeInUp delay-3">
+        <div class="feature-icon" style="background:rgba(16,185,129,0.15)">📋</div>
+        <h4>Attendance Tracking</h4>
+        <p>Bulk attendance marking with daily records and percentage calculation.</p>
+      </div>
+      <div class="feature-card glass-card animate-fadeInUp delay-4">
+        <div class="feature-icon" style="background:rgba(139,92,246,0.15)">🎯</div>
+        <h4>Grade Management</h4>
+        <p>Unit tests, mid-terms, finals — all stored and aggregated per subject.</p>
+      </div>
+      <div class="feature-card glass-card animate-fadeInUp delay-2">
+        <div class="feature-icon" style="background:rgba(34,211,238,0.15)">📢</div>
+        <h4>Announcements</h4>
+        <p>Teachers can post targeted notices to students, staff, or everyone.</p>
+      </div>
+      <div class="feature-card glass-card animate-fadeInUp delay-3">
+        <div class="feature-icon" style="background:rgba(244,63,94,0.15)">👥</div>
+        <h4>Student Management</h4>
+        <p>Full student profiles with parent contact, class assignment, and history.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="nav-brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <span class="brand-name">EduManage</span>
+          <span class="brand-sub">Pro</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2024 EduManage Pro. Built with Node.js, Express & ClickHouse.</p>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script src="js/landing.js"></script>
+</body>
+</html>
